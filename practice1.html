@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Introduction to Local Storage with JavaScript</title>
+</head>
+
+<body>
+    <h1>Local Storage in JavaScript</h1>
+</body>
+<script>
+    //    let siteName = 'My Site';
+    //    localStorage.setItem('siteName', siteName);
+    //    localStorage.removeItem('siteName');
+    // localStorage.clear()
+
+
+    //-----------------------------------------------------------
+    let header = document.getElementsByTagName('h1')[0];
+    let siteData = {
+        siteName: 'My Site',
+        siteDescription: 'Another Js Site'
+    };
+    localStorage.setItem('siteData', JSON.stringify(siteData));
+    let localData = JSON.parse(localStorage.getItem('siteData'));
+
+    console.log(localData);
+    console.log(localStorage.getItem('siteData'))
+
+    header.innerHTML = localData.siteName;
+
+</script>
+
+</html>

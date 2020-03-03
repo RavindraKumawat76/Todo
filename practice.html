@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage - JavaScript</title>
+</head>
+<style>
+    #title {
+        color: orangered;
+    }
+    input{
+        padding: 5px;
+        height: 35px;
+    }
+    button {
+        padding: 15px;
+        height: 50px;
+        background-color: palegreen;
+    }
+
+    fieldset {
+        margin-bottom: 20px;
+        width: 650px;
+    }
+</style>
+
+<body>
+    <h2 id="title">Local Storage - JavaScript</h2>
+    <fieldset>
+        <legend>Insert Data</legend>
+        <input id="inpKey" type="text" placeholder="Enter Key...">
+        <input id="inpValue" type="text" placeholder="Enter Value...">
+        <button type="button" id="btnInsert">Insert Data</button>
+    </fieldset>
+    <fieldset>
+        <legend>Local Storage</legend>
+        <div id="lsOutput"></div>
+    </fieldset>
+</body>
+<script>
+    const inpKey = document.getElementById("inpKey");
+    const inpValue = document.getElementById("inpValue");
+    const btnInsert = document.getElementById("btnInsert");
+    const lsOutput = document.getElementById("lsOutput");
+
+    btnInsert.onclick = function () {
+        const key = inpKey.value;
+        const value = inpValue.value;
+        // console.log(key);
+        // console.log(value);
+        if (key && value) {
+            localStorage.setItem(key, value);
+            location.reload();
+        }
+    };
+
+    for(let i = 0; i< localStorage.length; i++){
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        lsOutput.innerHTML +=`<strong>${key}:</strong>   <i>${value}</i> <br/>`;
+    }
+</script>
+
+</html>
